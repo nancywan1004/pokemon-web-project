@@ -1,47 +1,24 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <!-- <script src="script.js"></script> -->
-    <!-- <link rel="stylesheet" type="text/css" href="styles.css" /> -->
+    <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
   <body>
     <div>
-      <label for="todo-text" style="display: block">Todo List</label>
-      <input type="text" id="todo-text"></input>
-      <button type="submit" onclick="addTodo()">Add</button>
+        <!-- Trigger/Open The Modal -->
+        <button id="myBtn">Open Modal</button>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Some text in the Modal..</p>
+          </div>
+
+        </div>
     </div>
-    <script>
-      function addTodo() {
-        //console.log("add todo!");
-        var elemDiv = document.createElement("div");
-        var todoText = document.getElementById("todo-text").value;
-        //console.log(todoText);
-        elemDiv.id = todoText;
-        elemDiv.innerText = todoText;
-        elemDiv.onclick = () => {
-          deleteTodo(elemDiv.id);
-        }
-        document.body.appendChild(elemDiv);
-      }
-
-      function deleteTodo(elemId) {
-        //console.log(elemId);
-        var elemDivRemove = document.getElementById(elemId);
-        //console.log(elemDivRemove);
-        document.body.removeChild(elemDivRemove);
-      }
-
-      /* Code for fetching data from https://pokeapi.co/ */
-      var spriteImgElem = document.createElement('img');
-      // The pokeData variable is an asynchronous process called Promise
-      var pokeData = fetch("https://pokeapi.co/api/v2/pokemon/ditto").then(data => data.json());
-      pokeData.then((data) => {
-        console.log(data);
-        spriteImgElem.src = data.sprites["front_shiny"];
-        document.body.appendChild(spriteImgElem);
-      });
-
-      
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
